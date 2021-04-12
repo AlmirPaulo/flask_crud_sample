@@ -1,0 +1,24 @@
+{% block head %} 
+ <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css')  }}">
+<title>CRUD</title>
+
+{% endblock %}
+
+{% block body %} 
+
+<h1>Some Whathever Table</h1><br>
+<form method="POST">
+	<label>Name:</label>
+	<input type="text">
+	<label>Age:</label>
+	<input type="text">
+	<label>Gender:</label>
+	<input type="text">
+	<button>Submit</button>
+</form>
+<div class="table" id="table"> Testando Adipisicing molestiae beatae eius quia facilis! Quas sit nisi id consectetur suscipit eius! Eaque beatae similique vitae natus quos delectus Accusamus fugiat architecto aliquid voluptates quis nostrum Nisi culpa optioi</div>
+{% endblock %}
