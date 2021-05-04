@@ -1,9 +1,6 @@
 .env
-
 *.log
-
 note_*
-
 *.db
 
 
