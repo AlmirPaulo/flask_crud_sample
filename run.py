@@ -1,4 +1,4 @@
-from sample import app, views
+from sample import app, views, models, auth
 
 
 if __name__ == '__main__':

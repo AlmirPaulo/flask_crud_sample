@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form method="POST">
+    <h2>Register</h2>
+    <input class="form-control" id='username' placeholder='Username' name='username' required>
+    <input class="form-control" type='password'id='password' placeholder='password'  name='password' required>
+    <input class="form-control" type='password'placeholder='confirm password' id='conf' required>
+    <span class="text-danger err"></span>
+    <button class="btn btn-primary">Submit</button>
+</form>
+<script src="{{  url_for('static', filename='validation.js')  }}"></script>
+{% endblock %}
