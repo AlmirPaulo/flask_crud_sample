@@ -5,9 +5,23 @@
     <h2>Register</h2>
     <input class="form-control" id='username' placeholder='Username' name='username' required>
     <input class="form-control" type='password'id='password' placeholder='password'  name='password' required>
-    <input class="form-control" type='password'placeholder='confirm password' id='conf' required>
+    <input class="form-control" type='password'placeholder='confirm password' name='confirm-password'  id='conf' required>
     <span class="text-danger err"></span>
+    {% with msgs= get_flashed_messages(with_categories = true) %}
+        {% if msgs %}
+            {% for category, msg in msgs %}
+            {% if category == 'error' %}
+            <span class="text-danger">
+                {{ msg }}
+            </span>
+            {% else %}
+            <span class="text-success">
+                {{ msg }}
+            </span>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith  %}
     <button class="btn btn-primary">Submit</button>
 </form>
-<script src="{{  url_for('static', filename='validation.js')  }}"></script>
 {% endblock %}
