@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os, logging
 
+#https://docs.gunicorn.org/en/stable/
+#https://www.youtube.com/watch?v=J354T4gth0s
+
 logging.basicConfig(level=logging.DEBUG, filename='server.log', format='%(asctime)s:%(module)s:%(levelname)s:%(message)s')
 
 #Set Database 
@@ -10,9 +13,9 @@ db = SQLAlchemy()
 app = Flask(__name__)
 
 def create_app():
-    from sample import views, models, auth
-    from sample.auth import auth
-    from sample.models import User
+    from . import views, models, auth
+    from .auth import auth
+    from .models import User
     #configurations
     app.config['SECRET_KEY'] = 'Some really relevant sequency of characters, much better than this one.'
 
@@ -38,7 +41,6 @@ def create_app():
 
     app.register_blueprint(auth, url_prefix='/auth')
 
-    sample_app = app
 
-    return sample_app
+    return app
 
