@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block head %} 
 	<title>login</title>
 
@@ -6,11 +7,28 @@
 {% block body %} 
 <main class='flex'>
 	<div class="card-title bg-primary"><h2>Login</h2></div>
+	<form method='POST'>
 	<div class="card align-items-center">
 		<div class="card-body bg-secondary">
-			<input placeholder="Username" class="form-control" type="text">
-			<input placeholder='Password' class="form-control" type="password">
+			<input placeholder="Username" class="form-control" name='username'type="text">
+			<input placeholder='Password' class="form-control" name='password' type="password">
 			<button class="btn btn-primary">Enter</button>
+			{% with msgs= get_flashed_messages(with_categories=true) %}
+			{% if msgs %}
+			{% for category, msg in msgs %}
+			{% if category == 'error' %}
+			<span class="text-danger">
+				{{ msg  }}
+			</span>
+			{% else %}
+			<span class="text-success">
+				{{ msg  }}
+			</span>
+			{% endif %}
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+	</form>
 		</div>
 	</div>
 </main>

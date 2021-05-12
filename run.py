@@ -1,15 +1,6 @@
-from sample import app, views, models, auth
-from sample.models import User 
-import os, logging
- 
-logging.basicConfig(level=logging.DEBUG, filename='server.log', format='%(asctime)s:%(module)s:%(levelname)s:%(message)s')
+from sample import create_app
 
-if not os.path.exists('sample/data.db'):
-    try:
-        db.create_all()
-        logging.info('Database created!')
-    except:
-        logging.critical('Database could NOT be created!')
+#logging.basicConfig(level=logging.DEBUG, filename='server.log', format='%(asctime)s:%(module)s:%(levelname)s:%(message)s')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    create_app().run(debug=True)
